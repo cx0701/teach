@@ -25,27 +25,14 @@
 
     <div class="container mt-4 ">
         <div class="row justify-content-center " style="align-items: center;">
-            <div class="col-md-6">
-                <h3 class=" mb-4">1. 請選擇你使用的模式</h3>
-
-                <div class="btn-group  justify-content-center mb-5 " role="group"
-                    aria-label="Basic radio toggle button group" style="width: 100%;">
-                    <input type="radio" class="btn-check " name="btnradio" id="btnradio1" autocomplete="off" checked>
-                    <label class="btn btn-outline-secondary pt-2 pb-2 fs-5" for="btnradio1"
-                        onclick="getModeType(0)">觸控模式</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-secondary fs-5" for="btnradio3" onclick="getModeType(1)">旋轉模式</label>
-                </div>
-
-                <h3 class="mb-4">2. 請根據是否能提升你的學習動機，上至下排序以下選項:</h3>
+                <h3 class="mb-4">1. 請根據是否能提升你的學習動機，上至下排序以下選項:</h3>
 
                 <ul class="list-unstyled  align-items-center fs-5" id="sortable-list">
-                    <li class="list-group-item mb-3 rounded border border-3 shadow-sm p-2 m-3">選項一</li>
-                    <li class="list-group-item mb-3 rounded border border-3 shadow-sm p-2 m-3">選項二</li>
-                    <li class="list-group-item mb-3 rounded border border-3 shadow-sm p-2 m-3">選項三</li>
-                    <li class="list-group-item mb-3 rounded border border-3 shadow-sm p-2 m-3">選項四</li>
-                    <li class="list-group-item mb-3 rounded border border-3 shadow-sm p-2 m-3">選項五</li>
+                    <li class="list-group-item mb-3 rounded border border-3 shadow-sm p-2 m-3">中英配對遊戲</li>
+                    <li class="list-group-item mb-3 rounded border border-3 shadow-sm p-2 m-3">分類遊戲</li>
+                    <li class="list-group-item mb-3 rounded border border-3 shadow-sm p-2 m-3">翻牌遊戲</li>
+                    <li class="list-group-item mb-3 rounded border border-3 shadow-sm p-2 m-3">填空遊戲</li>
+                    <li class="list-group-item mb-3 rounded border border-3 shadow-sm p-2 m-3">排序遊戲</li>
                 </ul>
 
                 <div class="d-flex justify-content-center">
@@ -74,14 +61,6 @@
             ghostClass: 'sortable-ghost'
         });
 
-        function getModeType(int) {
-            if (int == 0) {
-                modeType = "觸控模式";
-            } else {
-                modeType = "旋轉模式";
-            }
-            console.log(modeType);
-        }
         function getOrder() {
             const items = sortableList.querySelectorAll('.list-group-item');
             const currentOrder = Array.from(items).map(item => item.textContent);
@@ -100,7 +79,6 @@
             console.log(currentOrder);
             //建立一個物件(Object)
             const dataToSend = {
-                modeType: modeType,
                 game1: game1,
                 game2: game2,
                 game3: game3,
